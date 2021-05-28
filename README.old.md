@@ -1,1 +1,0 @@
-# vitl-shopping-cart
