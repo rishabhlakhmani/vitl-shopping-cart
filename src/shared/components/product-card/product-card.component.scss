@@ -1,0 +1,26 @@
+.ant-card {
+  min-height: 208px;
+  .ant-card-actions {
+    border: none;
+    .ant-btn {
+      background: #f4cd06;
+    }
+  }
+
+  .ant-card-head {
+    .ant-card-head-title {
+      font-weight: 650;
+    }
+  }
+
+  .ant-card-body {
+    min-height: 136px;
+    span.card-body-heading {
+      font-weight: 600;
+    }
+
+    .ant-tag-gold {
+      border: none;
+    }
+  }
+}
