@@ -1,0 +1,13 @@
+.ant-layout-content {
+  .loader-container {
+    margin: 20px 0;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 4px;
+
+    .ant-spin-dot-item{
+        background: #f4cd06;
+    }
+  }
+}

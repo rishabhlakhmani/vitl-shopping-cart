@@ -30,7 +30,6 @@ export default function Products(): JSX.Element {
     fetchProducts();
   }, [setProducts, setTuls]);
 
-  if (isLoading) return <div> Loading ... </div>;
 
   return (
     <ProductsLayout
@@ -40,6 +39,7 @@ export default function Products(): JSX.Element {
           <ProductsList
             products={products}
             actionItem="Add to Basket"
+            isLoading={isLoading}
             onActionClick={addToBasket}
           />
         ) : (
