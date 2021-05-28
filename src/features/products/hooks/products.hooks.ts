@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Product } from "../../../models/interfaces/product.interface";
-import { TolerableUpperLimits } from "../../../models/interfaces/tul.interface";
+import { NutrientsAmount } from "../../../models/interfaces/tul.type";
 import { productsSelectors } from "../../../store/products/products.selector";
 import { productsActions } from "../../../store/products/products.slice";
 
@@ -17,13 +17,13 @@ const useSetProducts = (): ((products: Product[]) => void) => {
     );
 };
 
-const useGetTolerableUpperLimits = (): TolerableUpperLimits[] => useSelector(productsSelectors.getTolerableUpperLimits);
+const useGetTolerableUpperLimits = (): NutrientsAmount => useSelector(productsSelectors.getTolerableUpperLimits);
 
-const useSetTolerableUpperLimits = (): ((products: TolerableUpperLimits[]) => void) => {
+const useSetTolerableUpperLimits = (): ((tuls: NutrientsAmount) => void) => {
     const dispatch = useDispatch();
 
     return useCallback(
-        (value: TolerableUpperLimits[]) =>
+        (value: NutrientsAmount) =>
             dispatch(productsActions.setTolerableUpperLimits({ tolerableUpperLimits: value })),
         [dispatch],
     );

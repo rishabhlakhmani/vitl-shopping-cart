@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Nutrients } from '../../models/enums/nutrients.enum';
 import { Product } from '../../models/interfaces/product.interface';
-import { TolerableUpperLimits } from '../../models/interfaces/tul.interface';
+import { NutrientsAmount } from '../../models/interfaces/tul.type';
 
 export interface ProductsState {
     products: Product[];
-    tolerableUpperLimits: TolerableUpperLimits[];
+    tolerableUpperLimits: NutrientsAmount;
 }
 
 const initialState: ProductsState = {
     products: [],
-    tolerableUpperLimits: []
+    tolerableUpperLimits: {
+        [Nutrients.VitaminA] : 0,
+        [Nutrients.VitaminC] : 0,
+        [Nutrients.VitaminD] : 0,
+        [Nutrients.VitaminE] : 0,
+        [Nutrients.Zinc] : 0,
+    }
 };
 
 const productsSlice = createSlice({
@@ -19,7 +26,7 @@ const productsSlice = createSlice({
         setProducts(state, action: PayloadAction<{ products: Product[] }>): void {
             state.products = action.payload.products;
         },
-        setTolerableUpperLimits(state, action: PayloadAction<{ tolerableUpperLimits: TolerableUpperLimits[] }>): void {
+        setTolerableUpperLimits(state, action: PayloadAction<{ tolerableUpperLimits: NutrientsAmount }>): void {
             state.tolerableUpperLimits = action.payload.tolerableUpperLimits;
         },
         addToProducts(state, action: PayloadAction<{ product: Product }>): void {

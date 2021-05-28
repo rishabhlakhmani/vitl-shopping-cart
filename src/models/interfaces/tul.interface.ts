@@ -1,5 +1,5 @@
 import { Nutrient } from "./nutrient.interface";
 
-export interface TolerableUpperLimits extends Nutrient {
+export interface TolerableUpperLimit extends Nutrient {
     unit: String;
 }
