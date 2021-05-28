@@ -1,13 +1,5 @@
-
-
-// const mapTolerableUpperLimits = (limits: Nutrient[]): NutrientsAmount => {
-//     return Object.fromEntries(limits.map(item => [item.id, item.amount])) as NutrientsAmount
-// }
 import assigninwith from 'lodash.assigninwith';
 import { Nutrients } from '../../../models/enums/nutrients.enum';
-import { Nutrient } from '../../../models/interfaces/nutrient.interface';
-
-
 import { Product } from "../../../models/interfaces/product.interface"
 import { NutrientsAmount } from "../../../models/interfaces/tul.type"
 import { productUtils } from "../../products/utils/products.utils"
