@@ -6,6 +6,7 @@ import { NutrientsAmount } from '../../models/interfaces/tul.type';
 export interface basketState {
     productsInBasket: Product[];
     nutrientInBasket: NutrientsAmount;
+    totalPrice: number;
 }
 
 const initialState: basketState = {
@@ -16,7 +17,8 @@ const initialState: basketState = {
         [Nutrients.VitaminD]: 0,
         [Nutrients.VitaminE]: 0,
         [Nutrients.Zinc]: 0,
-    }
+    },
+    totalPrice: 0
 };
 
 const basketSlice = createSlice({
@@ -31,6 +33,11 @@ const basketSlice = createSlice({
         },
         updateNutrientsInBasket(state, action: PayloadAction<{ nutrientsToBeUpdatedInBasket: NutrientsAmount }>): void {
             state.nutrientInBasket = { ...state.nutrientInBasket, ...action.payload.nutrientsToBeUpdatedInBasket }
+        },
+        updateTotalPrice(state): void {
+            state.totalPrice = state.productsInBasket.reduce((sumTotal, product) => {
+                return sumTotal + product.price;
+              }, 0)
         }
     },
 });

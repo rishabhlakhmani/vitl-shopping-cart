@@ -10,9 +10,9 @@ export default function BasketLayout({
   productList,
 }: Props): JSX.Element {
   return (
-    <div>
+    <>
       {header}
       {productList}
-    </div>
+    </>
   );
 }

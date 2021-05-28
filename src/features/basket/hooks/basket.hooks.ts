@@ -13,6 +13,8 @@ const useGetNutrientsInBasket = (): NutrientsAmount => useSelector(basketSelecto
 
 const useGetBasketProducts = (): Product[] => useSelector(basketSelectors.getBasketProducts);
 
+const useGetTotalPrice = (): number => useSelector(basketSelectors.getTotalPrice);
+
 const useAddToBasket = (): ((product: Product) => void) => {
     const dispatch = useDispatch();
     const tolerableUpperLimits = productsHooks.useGetTolerableUpperLimits();
@@ -24,9 +26,10 @@ const useAddToBasket = (): ((product: Product) => void) => {
             const isEligibleToAddInBasket = basketUtils.isEligibleToAddInBasket(tolerableUpperLimits, nutrientsToBeAddedInBasket);
             if (isEligibleToAddInBasket) {
                 dispatch(basketActions.addToBasket({ product }));
-                dispatch(basketActions.updateNutrientsInBasket({ nutrientsToBeUpdatedInBasket: nutrientsToBeAddedInBasket }));
-                dispatch(productsActions.removeFromProducts({ name: product.name }))
                 toast.success(`${product.name} Successfully added in Basket !!`);
+                dispatch(basketActions.updateNutrientsInBasket({ nutrientsToBeUpdatedInBasket: nutrientsToBeAddedInBasket }));
+                dispatch(productsActions.removeFromProducts({ name: product.name }));
+                dispatch(basketActions.updateTotalPrice());
             } else {
                 toast.error('You are trying to exceed Tolerable Upper Limit !! Please remove some products from cart and then try again!!');
             }
@@ -44,7 +47,8 @@ const useRemoveFromBasket = (): ((product: Product) => void) => {
             const nutrientsToBeRemovedFromBasket = basketUtils.getNutrientsToBeRemovedFromBasket(nutrientInBasket, product);
             dispatch(basketActions.removeFromBasket({ name: product.name }))
             dispatch(basketActions.updateNutrientsInBasket({ nutrientsToBeUpdatedInBasket: nutrientsToBeRemovedFromBasket }));
-            dispatch(productsActions.addToProducts({ product }))
+            dispatch(productsActions.addToProducts({ product }));
+            dispatch(basketActions.updateTotalPrice());
         },
         [dispatch, nutrientInBasket],
     );
@@ -55,4 +59,5 @@ export const basketHooks = {
     useGetNutrientsInBasket,
     useAddToBasket,
     useRemoveFromBasket,
+    useGetTotalPrice,
 }

@@ -11,9 +11,9 @@ export default function ProductsLayout({
   productList,
 }: Props): JSX.Element {
   return (
-    <div className="products-container">
+    <>
       {header}
       {productList}
-    </div>
+    </>
   );
 }
