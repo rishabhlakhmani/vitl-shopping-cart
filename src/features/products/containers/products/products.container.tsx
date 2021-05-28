@@ -30,7 +30,6 @@ export default function Products(): JSX.Element {
     fetchProducts();
   }, [setProducts, setTuls]);
 
-
   return (
     <ProductsLayout
       header={<h2>Products</h2>}

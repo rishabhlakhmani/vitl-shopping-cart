@@ -6,7 +6,9 @@ export default function TotalPrice(): JSX.Element {
   return (
     <>
       <h2>Total</h2>
-      <span><strong>Amount :  </strong>&#163; {totalPrice}</span>
+      <span>
+        <strong>Amount : </strong>&#163; {totalPrice}
+      </span>
     </>
   );
 }

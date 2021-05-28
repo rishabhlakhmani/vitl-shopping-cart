@@ -1,5 +1,5 @@
 import React from "react";
-import './products-layout.component.scss'
+import "./products-layout.component.scss";
 
 interface Props {
   header: JSX.Element;

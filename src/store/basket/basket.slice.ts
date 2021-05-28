@@ -37,7 +37,7 @@ const basketSlice = createSlice({
         updateTotalPrice(state): void {
             state.totalPrice = state.productsInBasket.reduce((sumTotal, product) => {
                 return sumTotal + product.price;
-              }, 0)
+            }, 0)
         }
     },
 });

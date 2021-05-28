@@ -23,7 +23,7 @@ export default function ProductCard({
         </Button>,
       ]}
     >
-      <span className="card-body-heading"> Price: </span> {product.price} <br/>
+      <span className="card-body-heading"> Price: </span> {product.price} <br />
       <span className="card-body-heading"> Nutients: </span>
       {product.nutrients.map((nutrient) => (
         <Tag key={nutrient.id} color="gold">

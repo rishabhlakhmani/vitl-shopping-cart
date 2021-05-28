@@ -3,7 +3,7 @@ import Basket from "../../../basket/containers/basket/basket.container";
 import TotalPrice from "../../../basket/containers/total-price/total-price.container";
 import Products from "../../../products/containers/products/products.container";
 import HomePageLayout from "../../components/home-layout/home-layout.component";
-import './home-page.container.scss'
+import "./home-page.container.scss";
 
 export default function HomePage(): JSX.Element {
   return (

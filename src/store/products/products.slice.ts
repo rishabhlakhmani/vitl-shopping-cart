@@ -11,11 +11,11 @@ export interface ProductsState {
 const initialState: ProductsState = {
     products: [],
     tolerableUpperLimits: {
-        [Nutrients.VitaminA] : 0,
-        [Nutrients.VitaminC] : 0,
-        [Nutrients.VitaminD] : 0,
-        [Nutrients.VitaminE] : 0,
-        [Nutrients.Zinc] : 0,
+        [Nutrients.VitaminA]: 0,
+        [Nutrients.VitaminC]: 0,
+        [Nutrients.VitaminD]: 0,
+        [Nutrients.VitaminE]: 0,
+        [Nutrients.Zinc]: 0,
     }
 };
 
