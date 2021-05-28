@@ -17,7 +17,7 @@ export default function ProductsList({
   return (
     <Row gutter={[16, 16]}>
       {products.map((product) => (
-        <Col key={product.name} span={6}>
+        <Col key={product.name} xs={{span:24}} sm={{span:24}} md={{span:12}} lg={{span:6}}>
           <ProductCard
             key={product.name}
             product={product}

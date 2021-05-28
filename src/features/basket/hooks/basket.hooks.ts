@@ -26,10 +26,9 @@ const useAddToBasket = (): ((product: Product) => void) => {
                 dispatch(basketActions.addToBasket({ product }));
                 dispatch(basketActions.updateNutrientsInBasket({ nutrientsToBeUpdatedInBasket: nutrientsToBeAddedInBasket }));
                 dispatch(productsActions.removeFromProducts({ name: product.name }))
+                toast.success(`${product.name} Successfully added in Basket !!`);
             } else {
-                toast.error('You are trying to exceed Tolerable Upper Limit !! Please remove some products from cart and then try again!!', {
-                    position: "top-right",
-                });
+                toast.error('You are trying to exceed Tolerable Upper Limit !! Please remove some products from cart and then try again!!');
             }
         },
         [dispatch, tolerableUpperLimits, nutrientInBasket],

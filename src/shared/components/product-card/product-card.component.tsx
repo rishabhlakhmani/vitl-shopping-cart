@@ -1,6 +1,7 @@
 import { Button, Card, Tag } from "antd";
 import React from "react";
 import { Product } from "../../../models/interfaces/product.interface";
+import "./product-card.component.scss";
 
 interface Props {
   product: Product;
@@ -22,10 +23,10 @@ export default function ProductCard({
         </Button>,
       ]}
     >
-      <strong>Price:</strong> {product.price} <br />
-      <strong>Nutients:</strong>
+      <span className="card-body-heading"> Price: </span> {product.price} <br/>
+      <span className="card-body-heading"> Nutients: </span>
       {product.nutrients.map((nutrient) => (
-        <Tag key={nutrient.id} color="cyan">
+        <Tag key={nutrient.id} color="gold">
           {nutrient.id}-{nutrient.amount}
         </Tag>
       ))}

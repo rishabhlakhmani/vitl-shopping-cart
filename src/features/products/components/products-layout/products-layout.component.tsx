@@ -1,4 +1,5 @@
 import React from "react";
+import './products-layout.component.scss'
 
 interface Props {
   header: JSX.Element;
@@ -10,7 +11,7 @@ export default function ProductsLayout({
   productList,
 }: Props): JSX.Element {
   return (
-    <div>
+    <div className="products-container">
       {header}
       {productList}
     </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { apiUrl } from "../../../../api/api-url";
 import { Product } from "../../../../models/interfaces/product.interface";
 import { Response } from "../../../../models/interfaces/response.interface";
 import ProductsList from "../../../../shared/components/products-list/products-list.component";
@@ -17,9 +18,7 @@ export default function Products(): JSX.Element {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const result = await axios.get<Response>(
-        "https://vitl-static-api.s3-eu-west-1.amazonaws.com/fe-test.json"
-      );
+      const result = await axios.get<Response>(apiUrl);
       setIsLoading(false);
       setProducts(result.data.products as Product[]);
       const tolerableUpperLimits = productUtils.mapToNutrientsAmount(
@@ -32,17 +31,20 @@ export default function Products(): JSX.Element {
   }, [setProducts, setTuls]);
 
   if (isLoading) return <div> Loading ... </div>;
-  if (!products.length) return <div> No Products available </div>;
 
   return (
     <ProductsLayout
-      header={<h2>Basket</h2>}
+      header={<h2>Products</h2>}
       productList={
-        <ProductsList
-          products={products}
-          actionItem="Add to Basket"
-          onActionClick={addToBasket}
-        />
+        products.length ? (
+          <ProductsList
+            products={products}
+            actionItem="Add to Basket"
+            onActionClick={addToBasket}
+          />
+        ) : (
+          <div> No Products available. </div>
+        )
       }
     />
   );

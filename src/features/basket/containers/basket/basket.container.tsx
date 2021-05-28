@@ -11,13 +11,16 @@ export default function Basket(): JSX.Element {
     <BasketLayout
       header={<h2>Basket</h2>}
       productList={
-        <ProductsList
-          products={productsInBasket}
-          actionItem="Remove"
-          onActionClick={(product) => removeFromBasket(product)}
-        />
+        productsInBasket.length ? (
+          <ProductsList
+            products={productsInBasket}
+            actionItem="Remove"
+            onActionClick={(product) => removeFromBasket(product)}
+          />
+        ) : (
+          <div> No Products available In Basket. </div>
+        )
       }
-      totalAmount={<>hello</>}
     />
   );
 }

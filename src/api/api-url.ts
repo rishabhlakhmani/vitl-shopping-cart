@@ -1,0 +1,1 @@
+export const apiUrl = "https://vitl-static-api.s3-eu-west-1.amazonaws.com/fe-test.json"
